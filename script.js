@@ -22,6 +22,8 @@ const products = [
     price: 900000,
   },
 ];
+const cardsElement = document.createElement("div");
+rootElement.append(cardsElement);
 let cart = [];
 const productsElements = products.map(
   (p) =>
@@ -29,8 +31,10 @@ const productsElements = products.map(
       <h2>${p.title}</h2>
       <img src=${p.imgUrl} />
       <span>price: ${p.price}</span>
-      <button onclick="addToCart(${p.id})">Add to cart</button>
-      <button>More details</button>
+      <div class="buttons">
+        <button onclick="addToCart(${p.id})">Add to cart</button>
+        <button>More details</button>
+      </div>
   </div>`,
 );
 productsElements.forEach((p) => {
