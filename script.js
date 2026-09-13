@@ -49,6 +49,7 @@ productsElements.forEach((p) => {
 });
 
 let showCart = () => {
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
   let result = cart
     .map(
       (p) => `
@@ -85,6 +86,9 @@ let addToCart = (pid) => {
   } else {
     cart[cartSearchResult].count++;
   }
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   showCart();
 };
+
+showCart();
